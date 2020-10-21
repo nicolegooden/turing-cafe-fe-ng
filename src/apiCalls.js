@@ -14,7 +14,7 @@ export const postNewReservation = (name, date, time, number) => {
       name: name,
       date: date,
       time: time,
-      number: number
+      number: parseInt(number)
     })
   }).then(response => response.json()).catch(err => console.log(err))
 }
