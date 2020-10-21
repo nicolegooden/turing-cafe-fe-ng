@@ -20,10 +20,10 @@ class Form extends Component {
   render() {
     return (
       <section>
-        <input onChange={this.handleChange} name='name' value={this.state.name} placeholder='Name'></input>
-        <input onChange={this.handleChange} name='date' value={this.state.date} placeholder='Date (mm/dd)'></input>
-        <input onChange={this.handleChange} name='time' value={this.state.time} placeholder='Time'></input>
-        <input onChange={this.handleChange} name='number' value={this.state.number} placeholder='Number of guests'></input>
+        <input type='text' onChange={this.handleChange} name='name' value={this.state.name} placeholder='Name'></input>
+        <input type='text' onChange={this.handleChange} name='date' value={this.state.date} placeholder='Date (mm/dd)'></input>
+        <input type='text' onChange={this.handleChange} name='time' value={this.state.time} placeholder='Time'></input>
+        <input type='number' onChange={this.handleChange} name='number' value={this.state.number} placeholder='Number of guests'></input>
         <button>Make Reservation</button>
       </section>
     )
