@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
+import { getExistingReservations } from '../apiCalls.js';
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {}
+  }
+  
+  componentDidMount() {
+    getExistingReservations()
+    .then(resData => console.log('resData', resData))
+  }
+  
   render() {
     return (
       <div className="App">
