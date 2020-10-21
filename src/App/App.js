@@ -5,12 +5,14 @@ import { getExistingReservations } from '../apiCalls.js';
 class App extends Component {
   constructor() {
     super()
-    this.state = {}
+    this.state = {
+      existingReservations: []
+    }
   }
   
   componentDidMount() {
     getExistingReservations()
-    .then(resData => console.log('resData', resData))
+    .then(resData => this.setState({existingReservations: resData}))
   }
   
   render() {
