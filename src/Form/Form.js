@@ -8,7 +8,7 @@ class Form extends Component {
       name: '',
       date: '',
       time: '',
-      number: null
+      number: ''
       //remember to use parseInt on this.state.number (comes in as string)
     }
   }
