@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './form.css';
+import { postNewReservation } from '../apiCalls.js';
 
 class Form extends Component {
   constructor() {
@@ -9,7 +10,7 @@ class Form extends Component {
       date: '',
       time: '',
       number: ''
-      //remember to use parseInt on this.state.number (comes in as string)
+      //this.state.number will be parsed to an integer within the POST request's body
     }
   }
 
@@ -17,18 +18,10 @@ class Form extends Component {
     this.setState({[event.target.name]: event.target.value})
   }
 
-  handleSubmission = () => {
-    const newRes = {
-      name: this.state.name,
-      date: this.state.date,
-      time: this.state.time,
-      number: this.state.number
-      //Do I need to create my own id since a POST is not being made yet?
-    }
-    this.props.makeReservation(newRes);
+  handleSubmission = async () => {
+    await postNewReservation(this.state.name, this.state.date, this.state.time, this.state.number)
+    .then(response => this.props.makeReservation(response))
     this.setState({name: '', date: '', time: '', number: ''})
-    //I want to set the state of the number key back to null, but this does not
-    //clear the input on submission... will check back on this later if time permits.
   }
 
   render() {
