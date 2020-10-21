@@ -16,13 +16,17 @@ class App extends Component {
     getExistingReservations()
     .then(resData => this.setState({existingReservations: resData}))
   }
+
+  makeReservation = (newRes) => {
+    this.setState({existingReservations: [...this.state.existingReservations, newRes]})
+  }
   
   render() {
     return (
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <div className='resy-form'>
-          <Form />
+          <Form makeReservation={this.makeReservation}/>
         </div>
         <div className='resy-container'>
           <ResContainer existingReservations={this.state.existingReservations}/>
